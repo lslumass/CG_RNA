@@ -51,7 +51,7 @@ after getting the pdb file, one can create the simulation box using [Packmol](ht
 
 ## 3. Run simulation    
 After getting pdb and psf files, the simulation was performed using OpenMM through [run.py](./scripts/run.py).   
-The correct directories of [param_RNA.py](./force_fields/param_RNA.inp) and [top_RNA.inp](./force_fields/top_RNA.inp) should be given in run.RNA.py.   
+The correct paths of [param_RNA.inp](./force_fields/param_RNA.inp) and [top_RNA.inp](./force_fields/top_RNA.inp) should be given in run.py.   
 **Usage:** ```python run.py -c pdb_file -p psf_file -t temperature -b box -s slat_concentration -m Mg2+ concentraton```   
 where salt concentration (monvalent ions only) is in mM, default value is 150 mM. The box is a three float number, e.g., 50 50 50, temperature is in K, default value is 303 K. Mg2+ concentration is in mM, default value is 0.0 mM.    
 **Example:** ```python run.py -c conf.pdb -p conf.psf -t 303 -b 50 50 50 -s 150.0 -m 10.0```   
