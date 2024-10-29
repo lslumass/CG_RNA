@@ -15,7 +15,7 @@ well-tested in: OpenMM 8.1+, python 3.8/3.9
 1. build a new conda environment   
 conda create -n cgrna python=3.9   
 2. install openmm 8.1+   
-reference: [OpenMM Installation](http://docs.openmm.org/latest/userguide/application/01_getting_started.html#installing-openmm)   
+reference: [OpenMM Installation](http://docs.openmm.org/latest/userguide/application/01_getting_started.html#installing-openmm). Use cudatoolkit 11.8 with openmm 8.1.2.      
 3. dependencies:  
 a. [Mdanalysis](https://www.mdanalysis.org/)   
 b. [psfgen-python](https://psfgen.robinbetz.com/) (install through "conda install -c conda-forge psfgen", python < 3.10)   
