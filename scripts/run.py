@@ -35,6 +35,9 @@ elif len(args.box) == 3:
 else:
     print("Error: You must provide either one or three values for box.")
     exit(1)
+a = Vec3(lx, 0.0, 0.0)
+b = Vec3(0.0, ly, 0.0)
+c = Vec3(0.0, 0.0, lz)
 c_ion = args.salt/1000.0                                   # concentration of ions in M
 c_Mg = args.Mg                                           # concentration of Mg in mM
 
