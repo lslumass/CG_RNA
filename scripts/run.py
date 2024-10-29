@@ -17,20 +17,24 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-c', "--pdb", default='conf.pdb', help="pdb file")
 parser.add_argument('-p', "--psf", default='conf.psf', help="psf file")
 parser.add_argument('-t', "--temp", default=303, type=float, help="system temperature")
-parser.add_argument('-b', "--box", nargs=3, type=float, help="box dimensions in nanometer, e.g., '50 50 50' ")
+parser.add_argument('-b', "--box", nargs='+', type=float, help="box dimensions in nanometer, e.g., '50 50 50' ")
 parser.add_argument('-s', "--salt", default=150.0, type=float, help="salt concentration in mM")
-parser.add_argument('-m', "--Mg", type=float, default=0.0, help="Mg2+ concentration in mM")
+parser.add_argument('-m', "--Mg", default=0.0, type=float, help="Mg2+ concentration in mM")
 
 args = parser.parse_args()
 pdb_file = args.pdb
 psf_file = args.psf
 T = args.temp
-lx = args.box[0]*unit.nanometer                              # pbc box length
-ly = args.box[1]*unit.nanometer
-lz = args.box[2]*unit.nanometer
-a = Vec3(lx, 0.0, 0.0)
-b = Vec3(0.0, ly, 0.0)
-c = Vec3(0.0, 0.0, lz)
+# pbc box length
+if len(args.box) == 1:
+    lx, ly, lz = args.box[0], args.box[0], args.box[0]
+elif len(args.box) == 3:
+    lx = args.box[0]*unit.nanometer
+    ly = args.box[1]*unit.nanometer
+    lz = args.box[2]*unit.nanometer
+else:
+    print("Error: You must provide either one or three values for box.")
+    exit(1)
 c_ion = args.salt/1000.0                                   # concentration of ions in M
 c_Mg = args.Mg                                           # concentration of Mg in mM
 
