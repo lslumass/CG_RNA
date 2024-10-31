@@ -26,14 +26,14 @@ c. [HyresBuilder](https://github.com/lslumass/HyresBuilder)
 
 ### A. disordered RNA
 For disordered RNA or starting simulation from sequence, please using [build_CG_RNA.py](./scripts/build_CG_RNA.py) to generate a fully linear chain.   
-**Usage:** ```python RNA_builder.py output_pdb_file sequence```   
-**Example:** ```python RNA_builder.py 2koc_cg.pdb GGCACUUCGGUGCC```   
+**Usage:** ```python build_CG_RNA.py output_pdb_file sequence```   
+**Example:** ```python build_CG_RNA.py 2koc_cg.pdb GGCACUUCGGUGCC```   
 [2koc_cg.pdb](./examples/disorder/2koc_cg.pdb) will be generated.   
 
 ### B. structured RNA
 For simulation of structured RNA, one should first download the atomistic PDB file from [RCSB](https://www.rcsb.org/), and then convert it to CG pdb file using [at2cg_RNA.py](./scripts/at2cg_RNA.py).  
-**Usage:** ```python at2cg.py input_AA_pdb_file output_CG_pdb_file```   
-**Example:** ```python at2cg.py 2KOC.pdb 2koc_cg.pdb```   
+**Usage:** ```python at2cg_RNA.py input_AA_pdb_file output_CG_pdb_file```   
+**Example:** ```python at2cg_RNA.py 2KOC.pdb 2koc_cg.pdb```   
 [2KOC.pdb](./examples/from-structured/2KOC.pdb) was CHARMM-style PDB file obtained from [CHARMM-GUI](https://www.charmm-gui.org/), and then was converted to [2koc_cg.pdb](./examples/from-structured/2koc_cg.pdb)   
 **Note:** up to now, only atomistic pdb file from CHARMM-GUI can be converted correctly. No matter where you get the pdb file from, just convert it to CHARMM-style using CHARMM-GUI (**important:** choose "5PHO" and "3TER" for terminal groups).    
 
