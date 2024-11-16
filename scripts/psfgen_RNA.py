@@ -1,5 +1,6 @@
 import sys
 from psfgen import PsfGen
+from HyresBuilder import utils
 
 
 '''
@@ -10,9 +11,11 @@ note: 1. change the directory of top_RNA.inp
 
 pdb = sys.argv[1]
 psf = sys.argv[2]
+top_inp, param_inp = utils.load_ff('RNA')
 
 gen = PsfGen()
-gen.read_topology('../force_fields/top_RNA.inp')
-gen.add_segment(segid='2KOC', pdbfile=pdb, auto_angles=False, auto_dihedrals=False)
+gen.read_topology(top_inp)
+gen.add_segment(segid='iCon', pdbfile=pdb, auto_angles=False, auto_dihedrals=False)
 gen.write_psf(filename=psf)
 
+print('Finished!')
