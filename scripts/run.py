@@ -138,7 +138,7 @@ simulation.reporters.append(DCDReporter('system.dcd', dcd_freq))
 simulation.reporters.append(StateDataReporter('system.log', log_freq, progress=True, remainingTime=True, speed=True, totalSteps=total_step, temperature=True))
 #simulation.reporters.append(CheckpointReporter('system.chk', dcd_freq*10))
 
-simulation.integrator.setStepSize(0.004*unit.picoseconds)
+simulation.integrator.setStepSize(0.008*unit.picoseconds)
 print('\n# Production simulation running:')
 simulation.step(total_step)
 
