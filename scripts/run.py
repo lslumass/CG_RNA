@@ -93,8 +93,8 @@ params = CharmmParameterSet(top_inp, param_inp)
 if ensemble == 'non':
     system = psf.createSystem(params, nonbondedMethod=CutoffNonPeriodic, constraints=HBonds)
 else:
-    system = psf.createSystem(params, nonbondedMethod=CutoffPeriodic, constraints=HBonds)
     psf.setBox(lx, ly, lz)
+    system = psf.createSystem(params, nonbondedMethod=CutoffPeriodic, constraints=HBonds)
     system.setDefaultPeriodicBoxVectors(a, b, c)
 
 system = HyresFF.iConRNASystem(psf, system, ffs)
